@@ -67,7 +67,6 @@
         </div>
         <button id="play-pause-button">Play</button>
         <button id="stop-button">Stop</button>
-        <button id="loop-button">Loop: Off</button>
     </div>
 
     <script>
@@ -77,7 +76,7 @@
         const stopButton = document.getElementById('stop-button');
         const albumCover = document.getElementById('album-cover');
         const songInfo = document.getElementById('song-info');
-        const loopButton = document.getElementById('loop-button');
+       
 
         let isPlaying = true; // Audio starts playing automatically, so set this to true
 
@@ -99,16 +98,7 @@
             isPlaying = false;
         });
 
-        loopButton.addEventListener('click', () => {
-            if (isLooping) {
-                audio.loop = false;
-                loopButton.textContent = 'Loop: Off';
-            } else {
-                audio.loop = true;
-                loopButton.textContent = 'Loop: On';
-            }
-            isLooping = !isLooping;
-        });
+       
     </script>
 </body>
 </html>
