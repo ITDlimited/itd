@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tum Hi Ho</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('https://img.freepik.com/free-vector/abstract-colorful-technology-dotted-wave-background_1035-17450.jpg?w=360'); /* Add the path to your background image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        #player-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent background color */
+            border-radius: 10px;
+        }
+
+        #player-container audio {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        #album-cover {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        #song-info {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div id="player-container">
+        <h2>Tum Hi Ho - Aashiqi 2</h2>
+        <img id="album-cover" src="https://images-na.ssl-images-amazon.com/images/I/81bKF2aCkiL._SL1004_.jpg" alt="Album Cover">
+        <audio id="audio" controls autoplay>
+            <source src="https://aac.saavncdn.com/430/5c5ea5cc00e3bff45616013226f376fe_160.mp4" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <div id="song-info">
+            <p><strong>Album:</strong> Album Name</p>
+            <p><strong>Singer:</strong> Singer Name</p>
+            <p><strong>Writer:</strong> Writer Name</p>
+        </div>
+        <button id="play-pause-button">Play</button>
+        <button id="stop-button">Stop</button>
+        <button id="loop-button">Loop: Off</button>
+    </div>
+
+    <script>
+        // JavaScript code for controlling the music player
+        const audio = document.getElementById('audio');
+        const playPauseButton = document.getElementById('play-pause-button');
+        const stopButton = document.getElementById('stop-button');
+        const albumCover = document.getElementById('album-cover');
+        const songInfo = document.getElementById('song-info');
+        const loopButton = document.getElementById('loop-button');
+
+        let isPlaying = true; // Audio starts playing automatically, so set this to true
+
+        playPauseButton.addEventListener('click', () => {
+            if (isPlaying) {
+                audio.pause();
+                playPauseButton.textContent = 'Play';
+            } else {
+                audio.play();
+                playPauseButton.textContent = 'Pause';
+            }
+            isPlaying = !isPlaying;
+        });
+
+        stopButton.addEventListener('click', () => {
+            audio.pause();
+            audio.currentTime = 0;
+            playPauseButton.textContent = 'Play';
+            isPlaying = false;
+        });
+
+        loopButton.addEventListener('click', () => {
+            if (isLooping) {
+                audio.loop = false;
+                loopButton.textContent = 'Loop: Off';
+            } else {
+                audio.loop = true;
+                loopButton.textContent = 'Loop: On';
+            }
+            isLooping = !isLooping;
+        });
+    </script>
+</body>
+</html>
